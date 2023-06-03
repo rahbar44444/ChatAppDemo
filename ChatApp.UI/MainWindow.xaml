@@ -1,0 +1,1810 @@
+﻿<Window x:Class="ChatApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatApp.UI"
+        xmlns:convertor="clr-namespace:ChatApp.UI.ValueConverters"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="Chat App" Height="450" Width="800">
+    <Window.Resources>
+        
+
+    </Window.Resources>
+    <Canvas x:Name="contentCanvas">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.95}"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#301134" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.2}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.5}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.15}"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <!--<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.067}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.067}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.067}"/>
+                    </Grid.ColumnDefinitions>-->
+                    <Button Grid.Column="0" Margin="20 0 0 0"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <!--<Viewbox>-->
+                            <StackPanel Orientation="Horizontal">
+                                <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#ED6A5E" 
+                                  Margin="0 10 0 10" RenderTransformOrigin="1.5,1.5">
+                                </Path>
+                            </StackPanel>
+                            <!--</Viewbox>-->
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SlateGray" />
+                                    <Setter Property="Foreground" Value="SlateGray" />
+                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Button.Template>
+                </Button>
+                <Button Grid.Column="1" Margin="15 0 0 0"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <!--<Viewbox>-->
+                            <StackPanel Orientation="Horizontal">
+                                <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#F4BD4F" 
+                                  Margin="0 10 0 10" RenderTransformOrigin="1.5,1.5">
+                                </Path>
+                            </StackPanel>
+                            <!--</Viewbox>-->
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SlateGray" />
+                                    <Setter Property="Foreground" Value="SlateGray" />
+                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Button.Template>
+                </Button>
+                    <Button Grid.Column="2"  Margin="15 0 0 0"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <!--<Viewbox>-->
+                            <StackPanel Orientation="Horizontal">
+                                <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#61C354
+" 
+                                  Margin="0 10 0 10" RenderTransformOrigin="1.5,1.5">
+                                </Path>
+                            </StackPanel>
+                            <!--</Viewbox>-->
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SlateGray" />
+                                    <Setter Property="Foreground" Value="SlateGray" />
+                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Button.Template>
+                </Button>
+                </StackPanel>
+
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.3}"/>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" 
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <!--<Viewbox>-->
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="0 5 0 5" RenderTransformOrigin="2.5,2.5">
+                                    </Path>
+                                </StackPanel>
+                                <!--</Viewbox>-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>
+                    
+                    <Button Grid.Column="1" Margin="10 0 10 0"
+                    Command="{Binding AddCompanyCommand}" IsEnabled="False"
+                     Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <!--<Viewbox>-->
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="0 5 0 5" RenderTransformOrigin="2.5,2.5">
+                                    </Path>
+                                </StackPanel>
+                                <!--</Viewbox>-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>
+
+                    <Button Grid.Column="2" Margin="10 0 0 0"
+                    Command="{Binding AddCompanyCommand}" IsEnabled="False"
+                     Background="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <!--<Viewbox>-->
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7 14h-8v-9h2v7h6v2z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="0 5 0 5" RenderTransformOrigin="2.5,2.5">
+                                    </Path>
+                                </StackPanel>
+                                <!--</Viewbox>-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>
+
+                    <!--<TextBox Grid.Column="3" Background="#3E2142"
+                             Margin="5 10 5 10"
+                             VerticalAlignment="Stretch" Foreground="#fff"
+                             HorizontalAlignment="Stretch"
+                             Text="Search DesignersKR" Padding="20 0 5 0"
+                             FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>-->
+
+                    <!--<Viewbox Grid.Column="3">-->
+                    <!--<Button Grid.Column="3" Panel.ZIndex="1000"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                --><!--<Viewbox>--><!--
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="25 5 0 5" >
+                                    </Path>
+                                </StackPanel>
+                                --><!--</Viewbox>--><!--
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>-->
+                    <!--</Viewbox>-->
+                    <!--<Viewbox Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">-->
+                        <Border Grid.Column="3" BorderBrush="#fff" Margin="45 5 5 5"
+            BorderThickness="1"
+            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            CornerRadius="5">
+
+                            <StackPanel Margin="5" HorizontalAlignment="Stretch"
+                    Orientation="Horizontal">
+
+                                <Button Grid.Column="3" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.06}"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" >
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <!--<Viewbox>-->
+                                            <StackPanel Orientation="Horizontal">
+                                                <Path x:Name="PathIcon" Data="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                                </Path>
+                                            </StackPanel>
+                                            <!--</Viewbox>-->
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="SlateGray" />
+                                                    <Setter Property="Foreground" Value="SlateGray" />
+                                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+                                </Button>
+                                <TextBox Grid.Column="3" Background="#3E2142"
+                             
+                             VerticalAlignment="Stretch" Foreground="#fff"
+                             HorizontalAlignment="Stretch"
+                             Text="Search DesignersKR" Padding="20 0 5 0" BorderThickness="0"
+                             FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                                    <!--<TextBox.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Style>
+                                    </TextBox.Resources>-->
+                                </TextBox>
+
+                            </StackPanel>
+
+
+                        </Border>
+                    <!--</Viewbox>-->
+
+                    
+                    <Button Grid.Column="4" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.06}"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center" >
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <!--<Viewbox>-->
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.25 17c0 .69-.559 1.25-1.25 1.25-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25zm1.393-9.998c-.608-.616-1.515-.955-2.551-.955-2.18 0-3.59 1.55-3.59 3.95h2.011c0-1.486.829-2.013 1.538-2.013.634 0 1.307.421 1.364 1.226.062.847-.39 1.277-.962 1.821-1.412 1.343-1.438 1.993-1.432 3.468h2.005c-.013-.664.03-1.203.935-2.178.677-.73 1.519-1.638 1.536-3.022.011-.924-.284-1.719-.854-2.297z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                    </Path>
+                                </StackPanel>
+                                <!--</Viewbox>-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>
+                    <Button Grid.Column="4" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.01}"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 12 0 0">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <!--<Viewbox>-->
+                                <StackPanel Orientation="Horizontal">
+                                    <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                    </Path>
+                                </StackPanel>
+                                <!--</Viewbox>-->
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="SlateGray" />
+                                        <Setter Property="Foreground" Value="SlateGray" />
+                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+
+                        </Button.Template>
+                    </Button>
+                    
+                </Grid>
+
+                <Grid Grid.Column="4" Grid.Row="0"  HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="0"  Grid.Row="0" 
+                           HorizontalAlignment="Stretch"
+                           Margin="5 5 0 5"
+                           Fill="#442848"
+                           Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.02}">
+                    
+                </Rectangle>
+                    
+                <Rectangle Grid.Column="1"  Grid.Row="0" 
+                           HorizontalAlignment="Stretch"
+                           Margin="1 5 10 5"
+                           Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.02}">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="Orange" Offset="2"/>
+                            <GradientStop Color="OrangeRed" Offset="0.3"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Button Grid.Column="1" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.02}"
+                    Command="{Binding AddCompanyCommand}"
+                     Background="#56A97A"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                            Margin="0 12 0 0">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <!--<Viewbox>-->
+                            <StackPanel Orientation="Horizontal">
+                                <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#56A97A" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                </Path>
+                            </StackPanel>
+                            <!--</Viewbox>-->
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SlateGray" />
+                                    <Setter Property="Foreground" Value="SlateGray" />
+                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Button.Template>
+                </Button>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Background="#3F0F3F">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.07}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.23}"/>
+                    <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.7}"/>
+                </Grid.ColumnDefinitions>
+                <ListBox Name="mainMenuTemplate" Grid.Column="0" Margin="5 0 5 0" Padding="0 15 0 0"
+                         VerticalAlignment="Stretch" 
+                         HorizontalAlignment="Stretch" 
+                         HorizontalContentAlignment="Center"
+                         SelectionMode="Single"
+     Background="Transparent" BorderThickness="0 0 1 0">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border CornerRadius="5" BorderThickness="0" BorderBrush="#fff" 
+                    Margin="2 2 10 2" Background="Transparent" Name="itemBorder"
+                     VerticalAlignment="Center"
+                    FocusManager.IsFocusScope="True" Focusable="True">
+                                            <Border.Effect>
+                                                <DropShadowEffect BlurRadius="1" ShadowDepth="2" Color="#fff" Opacity="0.3"/>
+                                            </Border.Effect>
+                                            <ContentPresenter />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="itemBorder" Property="Background" Value="Gray"></Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Resources>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+                            </Style.Resources>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Center">
+                                <Border CornerRadius="5" BorderThickness="0" BorderBrush="#fff" 
+                                        Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.03}"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.06}"
+                    Margin="10" Background="Transparent" Name="itemBorder"
+                     VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                    FocusManager.IsFocusScope="True" Focusable="True">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="1" ShadowDepth="2" Color="#fff" Opacity="0.3"/>
+                                    </Border.Effect>
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Style.Triggers>
+                                                <Trigger Property="UIElement.IsFocused" Value="True">
+                                                    <Setter Property="Background" Value="Gray"/>
+                                                </Trigger>
+                                                <EventTrigger RoutedEvent="Border.MouseEnter">
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <ThicknessAnimation Duration="0:0:0.25"
+                                                            To="2"
+                                                            Storyboard.TargetProperty="BorderThickness"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                                <EventTrigger RoutedEvent="Border.MouseLeave">
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <ThicknessAnimation Duration="0:0:0.25"
+                                                            To="0"
+                                                            Storyboard.TargetProperty="BorderThickness"/>
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </EventTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <TextBlock Text="{Binding}"  FontSize="20" Foreground="#fff"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!--<ListBox Name="mainMenuTemplate" Panel.ZIndex="1000"
+                         VerticalAlignment="Stretch" 
+                         HorizontalAlignment="Stretch" 
+                         HorizontalContentAlignment="Center"
+                         SelectionMode="Single">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    --><!--your code...--><!--
+                                    <Setter Property="BorderBrush"
+                Value="Red"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>                            
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">                                    
+                                    <Button Content="{Binding}" 
+                                        Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"
+                                        HorizontalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalAlignment="Stretch"
+                                        FontSize="25"
+                                        Margin="10">
+                                        <Button.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+
+                                        </Button.Resources>
+                                    </Button>
+                                </StackPanel>
+                      
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>-->
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"/>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.5}"/>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.45}"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.11}"/>
+                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.11}"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Test" 
+                                   Foreground="#fff"
+                                   FontSize="30"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 5 0 5"/>
+
+                        <Button Grid.Column="1" 
+                     Background="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <!--<Viewbox>-->
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path x:Name="PathIcon" Data="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="0 5 0 5" RenderTransformOrigin="2.5,2.5">
+                                        </Path>
+                                    </StackPanel>
+                                    <!--</Viewbox>-->
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="SlateGray" />
+                                            <Setter Property="Foreground" Value="SlateGray" />
+                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Button.Template>
+                        </Button>
+
+                        <!--<Button Grid.Column="2"  Margin="0 0 0 0"
+                    Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"
+                     Background="Transparent"
+                   HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    --><!--<Viewbox>--><!--
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#fff
+" 
+                                  Margin="0 5 0 5" RenderTransformOrigin="0.5,0.5">
+                                        </Path>
+                                    </StackPanel>
+                                    --><!--</Viewbox>--><!--
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="SlateGray" />
+                                            <Setter Property="Foreground" Value="SlateGray" />
+                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Button.Template>
+                        </Button>-->
+                        <Button Grid.Column="2" 
+                     Background="Transparent" Margin="70 0 0 0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <!--<Viewbox>-->
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path x:Name="PathIcon" Data="M8.424 12.282l4.402 4.399-5.826 1.319 1.424-5.718zm15.576-6.748l-9.689 9.804-4.536-4.536 9.689-9.802 4.536 4.534zm-6 8.916v6.55h-16v-12h6.743l1.978-2h-10.721v16h20v-10.573l-2 2.023z"
+                                              Stretch="Uniform" Fill="#fff" 
+                                  Margin="10 2 0 5" RenderTransformOrigin="2.5,2.5">
+                                        </Path>
+                                    </StackPanel>
+                                    <!--</Viewbox>-->
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="SlateGray" />
+                                            <Setter Property="Foreground" Value="SlateGray" />
+                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.35}"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock 
+                                   Foreground="#fff"
+                                   FontSize="30"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 5 0 5">
+                                @ Mentions &amp; Reaction
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="0 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="M5 0v24l7-6 7 6v-24h-14zm1 1h12v20.827l-6-5.144-6 5.144v-20.827z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+                            <TextBlock 
+                                   Foreground="#fff"
+                                   FontSize="30"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="15 5 0 5">
+                                Saved items
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="0 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="m12 16.495c1.242 0 2.25 1.008 2.25 2.25s-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25 1.008-2.25 2.25-2.25zm0-6.75c1.242 0 2.25 1.008 2.25 2.25s-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25 1.008-2.25 2.25-2.25zm0-6.75c1.242 0 2.25 1.008 2.25 2.25s-1.008 2.25-2.25 2.25-2.25-1.008-2.25-2.25 1.008-2.25 2.25-2.25z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+                            <TextBlock 
+                                   Foreground="#fff"
+                                   FontSize="30"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="25 0 0 0">
+                                More
+                            </TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4" Orientation="Vertical" ScrollViewer.CanContentScroll="True"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0 15 0 0">
+                            <TreeView  Background="#3F0F3F" Foreground="#fff" 
+                                  FontSize="25" 
+                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0">
+
+                                <TreeViewItem Header="Channels" Foreground="#fff" IsExpanded="True">
+                                <TreeViewItem Foreground="#fff" Header="# channel-1"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-2"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-3"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-4"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-5"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-6"></TreeViewItem>
+                                <TreeViewItem Foreground="#fff" Header="# channel-7"></TreeViewItem>
+                            </TreeViewItem>
+                        </TreeView>
+
+                        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 5 0 50">
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="20 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-9.75 7.252v-3.5c0-.414.336-.75.75-.75s.75.336.75.75v3.5h3.5c.414 0 .75.336.75.75s-.336.75-.75.75h-3.5v3.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3.5h-3.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+                            <TextBlock 
+                                   Foreground="#fff"
+                                   FontSize="25"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 0">
+                                Add channels
+                            </TextBlock>
+                        </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Grid.Row="2" Orientation="Vertical" ScrollViewer.CanContentScroll="True" Margin="0 5 0 0"
+                                    ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <TreeView x:Name="teammatetreeview"  Background="#3F0F3F" Foreground="#fff"
+                                  FontSize="25" 
+                                   ItemsSource="{Binding TeamMateList}"
+                                  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="0">
+                            <!--<TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Path=Text}" />
+                                            <Image Source="{Binding ImageSource}" Stretch="Uniform" Height="30"/>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>-->
+                            <TreeViewItem Header="Direct messages" Foreground="#fff" IsExpanded="True" Expanded="TreeViewItem_Expanded">
+                                <TreeViewItem Foreground="#fff" >
+                                    <TreeViewItem.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 0 5 0">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="./Assets/hhh.png" />
+                                                </Image.Source>
+                                            </Image>
+                                            <TextBlock Grid.Column="1" Text="HHH"/>
+                                            <TextBlock Grid.Column="2" Text="you" Foreground="LightGray" Margin="10 10 0 0" FontSize="13"/>
+                                            <Button Grid.Column="0" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.015}"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                            Margin="0 12 10 0">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <!--<Viewbox>-->
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#56A97A" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                                            </Path>
+                                                        </StackPanel>
+                                                        <!--</Viewbox>-->
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="SlateGray" />
+                                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+
+                                                </Button.Template>
+                                            </Button>
+                                        </Grid>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                                <TreeViewItem Foreground="#fff" >
+                                    <TreeViewItem.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 0 5 0">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="./Assets/kamran.png" />
+                                                </Image.Source>
+                                            </Image>
+                                            <TextBlock Grid.Column="1" Text="Kamran"/>
+                                            <Button Grid.Column="0" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.015}"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                            Margin="0 12 10 0">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <!--<Viewbox>-->
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#56A97A" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                                            </Path>
+                                                        </StackPanel>
+                                                        <!--</Viewbox>-->
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="SlateGray" />
+                                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+
+                                                </Button.Template>
+                                            </Button>
+                                        </Grid>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                                <TreeViewItem Foreground="#fff" >
+                                    <TreeViewItem.Header>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 0 5 0">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="./Assets/heal.png" />
+                                                </Image.Source>
+                                            </Image>
+                                            <TextBlock Grid.Column="1" Text="Heal"/>
+                                            <Button Grid.Column="0" Panel.ZIndex="1000"
+                                        Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.015}"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                            Margin="0 12 10 0">
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <!--<Viewbox>-->
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Path x:Name="PathIcon" Data="M 0,100 A 100,100 0 1 1 200,100 A 100,100 0 1 1 0,100"
+                                              Stretch="Uniform" Fill="#56A97A" RenderTransformOrigin="1,1"
+                                  Margin="25 0 0 0" >
+                                                            </Path>
+                                                        </StackPanel>
+                                                        <!--</Viewbox>-->
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="SlateGray" />
+                                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+
+                                                </Button.Template>
+                                            </Button>
+                                        </Grid>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                            </TreeViewItem>
+                            </TreeView>
+
+                            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 5 0 50">
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="20 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="m21 3.998c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-9.75 7.252v-3.5c0-.414.336-.75.75-.75s.75.336.75.75v3.5h3.5c.414 0 .75.336.75.75s-.336.75-.75.75h-3.5v3.5c0 .414-.336.75-.75.75s-.75-.336-.75-.75v-3.5h-3.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75z"
+                                              Stretch="Uniform" Fill="#fff" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+                            <TextBlock 
+                                   Foreground="#fff"
+                                   FontSize="25"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 0">
+                                Add teammates
+                            </TextBlock>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Column="2" Background="#fff">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"/>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.7}"/>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.15}"/>
+                        <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.3}"/>
+                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.3}"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.04}"/>
+                                <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.06}"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Viewbox>
+                                <TextBlock Grid.Column="0" Text="# channel-6" 
+                                   Foreground="#000"
+                                   FontSize="30"
+                                       FontWeight="Bold"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 5 0 5"/>
+                                </Viewbox>
+                            
+                                <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="20 0 0 0">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <!--<Viewbox>-->
+                                            <StackPanel Orientation="Horizontal">
+                                                <Path x:Name="PathIcon" Data="M15.668 8.626l8.332 1.159-6.065 5.874 1.48 8.341-7.416-3.997-7.416 3.997 1.481-8.341-6.064-5.874 8.331-1.159 3.668-7.626 3.669 7.626zm-6.67.925l-6.818.948 4.963 4.807-1.212 6.825 6.068-3.271 6.069 3.271-1.212-6.826 4.964-4.806-6.819-.948-3.002-6.241-3.001 6.241z"
+                                              Stretch="Uniform" Fill="#000" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                </Path>
+                                            </StackPanel>
+                                            <!--</Viewbox>-->
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="SlateGray" />
+                                                    <Setter Property="Foreground" Value="SlateGray" />
+                                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <!--<Viewbox>-->
+                                    <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="0 0 0 0">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <!--<Viewbox>-->
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Path x:Name="PathIcon" Data="M11 17h2v5l-2 2v-7zm7-2h-12c0-3.128.091-4.744 1.874-7.276.551-.783.915-1.3.915-2.373 0-2.372-1.789-1.695-1.789-5.351h10c0 3.616-1.789 3.005-1.789 5.35 0 1.073.364 1.59.915 2.374 1.785 2.535 1.874 4.154 1.874 7.276zm-9.968-2h7.936c-.298-4.376-2.756-4.142-2.756-7.649-.001-1.605.521-2.351 1.271-3.351h-4.966c.75 1 1.272 1.745 1.272 3.35 0 3.487-2.46 3.29-2.757 7.65z"
+                                              Stretch="Uniform" Fill="Gray" 
+                                  Margin="15 0 0 0" >
+                                                    </Path>
+                                                </StackPanel>
+                                                <!--</Viewbox>-->
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="SlateGray" />
+                                                        <Setter Property="Foreground" Value="SlateGray" />
+                                                        <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+
+                                        </Button.Template>
+                                    </Button>
+                                <!--</Viewbox>-->
+                                <Viewbox>
+                                    <TextBlock Grid.Column="0" Text="13" 
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 5"/>
+                                </Viewbox>
+                                <Viewbox>
+                                    <TextBlock Grid.Column="0" Text="|" 
+                                   Foreground="Gray"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 8"/>
+                                </Viewbox>
+
+                                <Rectangle Grid.Column="0"  Grid.Row="0" 
+                           HorizontalAlignment="Stretch"
+                           Margin="25 15 0 5"
+                           Fill="#000"
+                           Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.007}"/>
+
+                                <TextBlock Grid.Column="0" Text="Channel for number 6" 
+                                   Foreground="Gray"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 0 5"/>
+                                
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 50 0">
+                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"/>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.2}"/>
+                            </Grid.ColumnDefinitions>-->
+                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center"
+                                   Panel.ZIndex="1000">
+                                <Image.Source>
+                                    <BitmapImage   UriSource="./Assets/heal.png" />
+                                </Image.Source>
+                            </Image>
+
+                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                <Image.Source>
+                                    <BitmapImage   UriSource="./Assets/kamran.png" />
+                                </Image.Source>
+                            </Image>
+                            
+                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                <Image.Source>
+                                    <BitmapImage   UriSource="./Assets/hhh.png" />
+                                </Image.Source>
+                            </Image>
+
+                            <TextBlock Grid.Column="0" Text="493" 
+                                   Foreground="Gray"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Margin="10 20 0 0"/>
+
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="0 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="M9.602 3.7c-1.154 1.937-.635 5.227 1.424 9.025.93 1.712.697 3.02.338 3.815-.982 2.178-3.675 2.799-6.525 3.456-1.964.454-1.839.87-1.839 4.004h-1.995l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 3.321 0 5.97 2.117 5.97 6.167 0 3.555-1.949 6.833-2.383 7.833h-2.115c.392-1.536 2.499-4.366 2.499-7.842 0-5.153-5.867-4.985-7.369-2.458zm13.398 15.3h-3v-3h-2v3h-3v2h3v3h2v-3h3v-2z"
+                                              Stretch="Uniform" Fill="Gray" 
+                                  Margin="15 20 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+
+                            <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                            Margin="0 0 0 0">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <!--<Viewbox>-->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Path x:Name="PathIcon" Data="m12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.807-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm0 6.5c-.414 0-.75.336-.75.75v5.5c0 .414.336.75.75.75s.75-.336.75-.75v-5.5c0-.414-.336-.75-.75-.75zm-.002-3c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"
+                                              Stretch="Uniform" Fill="Gray" 
+                                  Margin="15 20 0 0" >
+                                            </Path>
+                                        </StackPanel>
+                                        <!--</Viewbox>-->
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="SlateGray" />
+                                                <Setter Property="Foreground" Value="SlateGray" />
+                                                <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Button.Template>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <ListView Name="messageList" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal">
+                                        <Separator Margin="0 50 0 0" Background="#DFDFDF"
+                                            Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.275}"
+                                            HorizontalAlignment="Stretch"/>
+                                        <Border BorderBrush="#DFDFDF" BorderThickness="1" CornerRadius="25" Panel.ZIndex="1000"
+                                                VerticalAlignment="Center"
+                                                Margin="0 50 0 0"
+                                                Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.15}"
+                                                Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.04}">
+                                                <TextBlock Grid.Column="0" Text="{Binding LastReadOn}" 
+                                   Foreground="#1D1C1D"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" 
+                                   Margin="0 0 0 0"/>
+                                            </Border>
+                                            <Separator Margin="0 50 0 0" Background="#DFDFDF"
+                                            Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.275}"
+                                            HorizontalAlignment="Stretch"/>
+                                        </StackPanel>
+                                    <Grid Grid.Row="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                                            <RowDefinition Height="Auto" MaxHeight="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.14}"/>
+                                            <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" MaxWidth="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.05}"/>
+                                            <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.55}"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Grid.Row="0" Stretch="Uniform" Height="30" Margin="10 0 5 0">
+                                            <Image.Source>
+                                                <BitmapImage   UriSource="{Binding ImagePath}" />
+                                            </Image.Source>
+                                        </Image>
+                                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                            <Viewbox Margin="10">
+                                        <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="#000" Margin="0,0,0,0" />
+                                            </Viewbox>
+                                            <Viewbox Margin="15">
+                                            <TextBlock Text="{Binding Time}" Margin="0,5,10,0" />
+                                            </Viewbox>
+                                        </StackPanel>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Text="{Binding Message}" Margin="5,0,0,0" />
+
+                                        <StackPanel Name="messagePanel" Visibility="{Binding MessagePanelVisibility}" Grid.Row="2" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Left" Margin="0 0 50 0">
+                                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.1}"/>
+                                <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.2}"/>
+                            </Grid.ColumnDefinitions>-->
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center"
+                                   Panel.ZIndex="1000">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="{Binding ImagePath}" />
+                                                </Image.Source>
+                                            </Image>
+
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="{Binding ImagePath}" />
+                                                </Image.Source>
+                                            </Image>
+
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="{Binding ImagePath}" />
+                                                </Image.Source>
+                                            </Image>
+
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="{Binding ImagePath}" />
+                                                </Image.Source>
+                                            </Image>
+
+                                            <Image Grid.Column="0" Stretch="Uniform" Height="30" Margin="0 25 0 0" VerticalAlignment="Center">
+                                                <Image.Source>
+                                                    <BitmapImage   UriSource="{Binding ImagePath}" />
+                                                </Image.Source>
+                                            </Image>
+
+                                            <TextBlock Grid.Column="0" Text="{Binding ReplyCount}" 
+                                   Foreground="#3C71A6"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Margin="10 20 0 0"/>
+
+                                            <TextBlock Grid.Column="0" Text="{Binding LastReply}" 
+                                   Foreground="#6F6F6F"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Margin="10 20 0 0"/>
+                                        </StackPanel>
+
+
+                                        <Border Name="reactionPanel" Visibility="{Binding ReactionPanelVisibility}"
+                                                Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" Margin="10"
+                                                BorderThickness="1" BorderBrush="#EFEFEF" Background="#EFEFEF" CornerRadius="15">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 5 25 1">
+                                                    <Button.Template>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <!--<Viewbox>-->
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Path x:Name="PathIcon" Data="M19.396 20.708c-.81-.062-.733-.812.031-.953 1.269-.234 1.827-.914 1.827-1.543 0-.529-.396-1.022-1.098-1.181-.837-.189-.664-.757.031-.812 1.132-.09 1.688-.764 1.688-1.41 0-.565-.425-1.108-1.261-1.22-.857-.115-.578-.734.031-.922.521-.16 1.354-.5 1.354-1.51 0-.672-.5-1.562-2.271-1.49-1.228.05-3.667-.198-4.979-.885.907-3.657.689-8.782-1.687-8.782-1.594 0-1.896 1.807-2.375 3.469-1.718 5.969-5.156 7.062-8.687 7.603v9.928c6.688 0 8.5 3 13.505 3 3.199 0 4.852-1.735 4.852-2.666-.001-.334-.273-.572-.961-.626z"
+                                              Stretch="Uniform" Fill="Yellow" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                                </Path>
+                                                            </StackPanel>
+                                                            <!--</Viewbox>-->
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="SlateGray" />
+                                                                    <Setter Property="Foreground" Value="SlateGray" />
+                                                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+
+                                                    </Button.Template>
+                                                </Button>
+
+                                                <TextBlock Grid.Column="0" Text="1" 
+                                   Foreground="#3C71A6"
+                                   FontSize="15" FontWeight="Bold"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Margin="0 0 20 0"/>
+
+                                            </StackPanel>
+                                        </Border>
+
+                                        <Border Visibility="{Binding ReactionPanelVisibility}"
+                                                Grid.Row="2"  Grid.Column="1" HorizontalAlignment="Left" Margin="120 10 10 10"
+                                                BorderThickness="1" BorderBrush="#EFEFEF" Background="#EFEFEF" CornerRadius="15">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 5 25 1">
+                                                    <Button.Template>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <!--<Viewbox>-->
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Path x:Name="PathIcon" Data="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 14h-12c.331 1.465 2.827 4 6.001 4 3.134 0 5.666-2.521 5.999-4zm0-3.998l-.755.506s-.503-.948-1.746-.948c-1.207 0-1.745.948-1.745.948l-.754-.506c.281-.748 1.205-2.002 2.499-2.002 1.295 0 2.218 1.254 2.501 2.002zm-7 0l-.755.506s-.503-.948-1.746-.948c-1.207 0-1.745.948-1.745.948l-.754-.506c.281-.748 1.205-2.002 2.499-2.002 1.295 0 2.218 1.254 2.501 2.002z"
+                                              Stretch="Uniform" Fill="#5B5B5B" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                                </Path>
+                                                            </StackPanel>
+                                                            <!--</Viewbox>-->
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="SlateGray" />
+                                                                    <Setter Property="Foreground" Value="SlateGray" />
+                                                                    <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+
+                                                    </Button.Template>
+                                                </Button>
+
+
+                                            </StackPanel>
+                                        </Border>
+                                    </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Border BorderBrush="#000" BorderThickness="1" CornerRadius="5" Padding="5"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.08}"/>
+                                    <RowDefinition Height="{Binding ActualHeight, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.07}"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBox Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                         AcceptsReturn="True" Margin="5" BorderThickness="0" FontSize="22">
+                                </TextBox>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.25}"/>
+                                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.2}"/>
+                                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=contentCanvas, Converter={convertor:PercentageConverter}, ConverterParameter=0.15}"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" HorizontalAlignment="Left">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Button  Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="M6 24l15-17h-7.035l2.606-7h-8.196l-5.375 14h5.888l-2.888 10zm0-12l3.713-10.039h3.845l-2.607 7.039h5.549l-6.031 7.062 1.366-4.062h-5.835z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <!--<Viewbox Grid.Column="1">-->
+                                            <TextBlock Grid.Column="1" Text="|" 
+                                   Foreground="Gray"
+                                   FontSize="20"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Margin="10 0 0 0"/>
+                                        <!--</Viewbox>-->
+
+                                        <Button Grid.Column="2" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="B" FontWeight="Bold" FontSize="20" Foreground="Gray"/>
+                                                        
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="3" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="𝑰" FontWeight="Bold" FontSize="20" Foreground="Gray"/>
+
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="4" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="S̶" FontWeight="Bold" FontSize="20" Foreground="Gray"/>
+
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="5" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="&lt;/&gt;" FontWeight="Bold" FontSize="20" Foreground="Gray"/>
+
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="6" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 5 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="M14.851 11.923c-.179-.641-.521-1.246-1.025-1.749-1.562-1.562-4.095-1.563-5.657 0l-4.998 4.998c-1.562 1.563-1.563 4.095 0 5.657 1.562 1.563 4.096 1.561 5.656 0l3.842-3.841.333.009c.404 0 .802-.04 1.189-.117l-4.657 4.656c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-1.952-1.951-1.952-5.12 0-7.071l4.998-4.998c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464.493.493.861 1.063 1.105 1.672l-.787.784zm-5.703.147c.178.643.521 1.25 1.026 1.756 1.562 1.563 4.096 1.561 5.656 0l4.999-4.998c1.563-1.562 1.563-4.095 0-5.657-1.562-1.562-4.095-1.563-5.657 0l-3.841 3.841-.333-.009c-.404 0-.802.04-1.189.117l4.656-4.656c.975-.976 2.256-1.464 3.536-1.464 1.279 0 2.56.488 3.535 1.464 1.951 1.951 1.951 5.119 0 7.071l-4.999 4.998c-.975.976-2.255 1.464-3.535 1.464-1.28 0-2.56-.488-3.535-1.464-.494-.495-.863-1.067-1.107-1.678l.788-.785z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="10 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="7" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 10 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="m22 17.75c0-.414-.336-.75-.75-.75h-14.5c-.414 0-.75.336-.75.75s.336.75.75.75h14.5c.414 0 .75-.336.75-.75zm-18.953-1.494c-.621 0-.578.751-.06.751.108.003.371-.076.52.079.218.228.07.693-.293.693-.258 0-.349-.202-.456-.488-.123-.355-.758-.26-.758.203 0 .34.416 1.006 1.21 1.006.187 0 .358-.03.514-.09.474-.181.765-.619.765-1.054 0-.29-.129-.58-.418-.794.671-.726.046-1.562-.815-1.562-.75 0-1.162.49-1.162.864 0 .306.254.404.376.404.395 0 .329-.283.494-.482.104-.13.501-.124.501.174 0 .358-.518.306-.418.296zm18.953-2.506c0-.414-.336-.75-.75-.75h-14.5c-.414 0-.75.336-.75.75s.336.75.75.75h14.5c.414 0 .75-.336.75-.75zm-18.785-1.032c.214-.21.511-.426.8-.686.805-.713.535-2.002-.77-2.002-.813 0-1.24.596-1.24 1.028 0 .478.513.548.708.308.176-.212.152-.595.519-.595.346 0 .517.373.097.792-.065.065-1.065.825-1.258 1.246-.043.096-.071.19-.071.283 0 .159.127.438.494.438h1.597c.344 0 .434-.256.434-.404 0-.314-.284-.408-.497-.408zm18.785-2.968c0-.414-.336-.75-.75-.75h-14.5c-.414 0-.75.336-.75.75s.336.75.75.75h14.5c.414 0 .75-.336.75-.75zm-19.04-1.738c0 .226.113.497.439.497.015 0 .443.032.443-.58v-2.45c0-.335-.206-.479-.401-.479-.224 0-.272.108-.414.306-.183.254-.369.387-.631.511-.23.108-.396.181-.396.428 0 .208.173.388.378.388.18 0 .434-.169.582-.271zm19.04-2.262c0-.414-.336-.75-.75-.75h-14.5c-.414 0-.75.336-.75.75s.336.75.75.75h14.5c.414 0 .75-.336.75-.75z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="10 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="8" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 10 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="m22 17.75c0-.414-.336-.75-.75-.75h-13.5c-.414 0-.75.336-.75.75s.336.75.75.75h13.5c.414 0 .75-.336.75-.75zm-18.25-2.75c.966 0 1.75.784 1.75 1.75s-.784 1.75-1.75 1.75-1.75-.784-1.75-1.75.784-1.75 1.75-1.75zm18.25-1.25c0-.414-.336-.75-.75-.75h-13.5c-.414 0-.75.336-.75.75s.336.75.75.75h13.5c.414 0 .75-.336.75-.75zm-18.25-3.75c.966 0 1.75.784 1.75 1.75s-.784 1.75-1.75 1.75-1.75-.784-1.75-1.75.784-1.75 1.75-1.75zm18.25-.25c0-.414-.336-.75-.75-.75h-13.5c-.414 0-.75.336-.75.75s.336.75.75.75h13.5c.414 0 .75-.336.75-.75zm-18.25-4.75c.966 0 1.75.784 1.75 1.75s-.784 1.75-1.75 1.75-1.75-.784-1.75-1.75.784-1.75 1.75-1.75zm18.25.75c0-.414-.336-.75-.75-.75h-13.5c-.414 0-.75.336-.75.75s.336.75.75.75h13.5c.414 0 .75-.336.75-.75z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="10 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="9" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 10 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="m21 4c0-.478-.379-1-1-1h-16c-.62 0-1 .519-1 1v16c0 .621.52 1 1 1h16c.478 0 1-.379 1-1zm-16.5.5h15v15h-15z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="10 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+                                    </Grid>
+
+                                    <Grid Grid.Column="2" HorizontalAlignment="Right" Margin="0 0 65 0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Button Grid.Column="0" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Aa" FontWeight="Bold" FontSize="20" Foreground="#C4C4C4"/>
+
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="1" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="15 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="@" FontWeight="Bold" FontSize="20" Foreground="Gray"/>
+
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />-->
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="2" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.507 13.941c-1.512 1.195-3.174 1.931-5.506 1.931-2.334 0-3.996-.736-5.508-1.931l-.493.493c1.127 1.72 3.2 3.566 6.001 3.566 2.8 0 4.872-1.846 5.999-3.566l-.493-.493zm-9.007-5.941c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5-.672-1.5-1.5-1.5zm7 0c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5-.672-1.5-1.5-1.5z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="3" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="M17 5v12c0 2.757-2.243 5-5 5s-5-2.243-5-5v-12c0-1.654 1.346-3 3-3s3 1.346 3 3v9c0 .551-.449 1-1 1s-1-.449-1-1v-8h-2v8c0 1.657 1.343 3 3 3s3-1.343 3-3v-9c0-2.761-2.239-5-5-5s-5 2.239-5 5v12c0 3.866 3.134 7 7 7s7-3.134 7-7v-12h-2z"
+                                              Stretch="Uniform" Fill="Gray" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                        <Button Grid.Column="4" Panel.ZIndex="1000"
+                     Background="#56A97A"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                            Margin="10 0 0 1">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <!--<Viewbox>-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Path x:Name="PathIcon" Data="M0 12l11 3.1 7-8.1-8.156 5.672-4.312-1.202 15.362-7.68-3.974 14.57-3.75-3.339-2.17 2.925v-.769l-2-.56v7.383l4.473-6.031 4.527 4.031 6-22z"
+                                              Stretch="Uniform" Fill="#C4C4C4" RenderTransformOrigin="1,1"
+                                  Margin="15 0 0 0" >
+                                                        </Path>
+                                                    </StackPanel>
+                                                    <!--</Viewbox>-->
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="SlateGray" />
+                                                            <Setter Property="Foreground" Value="SlateGray" />
+                                                            <Setter TargetName="PathIcon" Property="Fill" Value="SlateGray" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+
+                                            </Button.Template>
+                                        </Button>
+
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Canvas>
+</Window>
